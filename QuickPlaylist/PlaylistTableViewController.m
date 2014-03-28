@@ -76,7 +76,9 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(editingStyle == UITableViewCellEditingStyleDelete){
-        [[MediaManager shared] removeSongFromPlaylist:[[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]]];
+        MPMediaItem * toDelete = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
+        [[MediaManager shared] removeSongFromPlaylist:toDelete];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 
