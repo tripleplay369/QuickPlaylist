@@ -11,8 +11,9 @@
 #import "TableViewController.h"
 #import "PlaylistTableViewController.h"
 #import "FinalViewController.h"
+#import "MediaManager.h"
 
-@interface PageViewController()<UIPageViewControllerDataSource>
+@interface PageViewController()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @end
 
@@ -24,6 +25,7 @@
     
     [self setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"help"]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     self.dataSource = self;
+    self.delegate = self;
 }
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -53,6 +55,16 @@
     }
     return nil;
     
+}
+
+-(void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers
+{
+    ;
+}
+
+-(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+    ;
 }
 
 @end
