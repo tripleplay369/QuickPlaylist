@@ -25,13 +25,22 @@
     return @"";
 }
 
+-(BOOL)isEqual:(id)object
+{
+    return object == self;
+}
+
 @end
 
 @implementation MPMediaQuery
 
 -(NSArray *)items
 {
-    return @[[[MPMediaItem alloc] init]];
+    NSMutableArray * arr = [NSMutableArray array];
+    for(int i = 0; i < 1000; ++i){
+        [arr addObject:[[MPMediaItem alloc] init]];
+    }
+    return arr;
 }
 
 @end

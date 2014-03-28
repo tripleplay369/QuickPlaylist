@@ -151,9 +151,9 @@
 				A7692FD118E5A4B3000CFC91 /* PlaylistTableViewController.m */,
 				A7692FD518E5AAA2000CFC91 /* MediaManager.h */,
 				A7692FD618E5AAA2000CFC91 /* MediaManager.m */,
-				A7692FD918E5B61D000CFC91 /* MPMediaTester.m */,
 				A778B90518E5BAA3001FF331 /* FinalViewController.h */,
 				A778B90618E5BAA3001FF331 /* FinalViewController.m */,
+				A7692FD918E5B61D000CFC91 /* MPMediaTester.m */,
 			);
 			path = QuickPlaylist;
 			sourceTree = "<group>";

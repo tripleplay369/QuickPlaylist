@@ -12,7 +12,7 @@
 
 @interface TableViewController()<UITableViewDataSource>
 
-@property NSArray * songs;
+@property NSMutableArray * songs;
 
 @end
 
@@ -66,6 +66,15 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return songs.count;
+}
+
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MPMediaItem * song = [songs objectAtIndex:[indexPath indexAtPosition:1]];
+    [[MediaManager shared] addSongToPlaylist:song];
+    [songs removeObject:song];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    return nil;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
