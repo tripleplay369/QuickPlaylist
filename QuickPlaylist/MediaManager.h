@@ -18,5 +18,6 @@
 -(void)removeSongFromPlaylist:(MPMediaItem *)song;
 -(NSArray *)getPlaylist;
 -(void)clearPlaylist;
+-(void)moveIndex:(int)startIndex toIndex:(int)endIndex;
 
 @end

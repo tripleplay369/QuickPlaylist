@@ -75,4 +75,11 @@ static MediaManager * shared_p = nil;
     return playlist;
 }
 
+-(void)moveIndex:(int)startIndex toIndex:(int)endIndex
+{
+    MPMediaItem * song = [playlist objectAtIndex:startIndex];
+    [playlist removeObjectAtIndex:startIndex];
+    [playlist insertObject:song atIndex:endIndex];
+}
+
 @end

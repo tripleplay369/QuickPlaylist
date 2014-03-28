@@ -20,6 +20,12 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
+    [self.tableView setEditing:YES animated:NO];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,12 +62,22 @@
 
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    ;
+    int startIndex = [sourceIndexPath indexAtPosition:1];
+    int endIndex = [destinationIndexPath indexAtPosition:1];
+    
+    [[MediaManager shared] moveIndex:startIndex toIndex:endIndex];
 }
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete){
+        [[MediaManager shared] removeSongFromPlaylist:[[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]]];
+    }
 }
 
 @end
