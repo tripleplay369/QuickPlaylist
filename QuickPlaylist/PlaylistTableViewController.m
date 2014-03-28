@@ -7,6 +7,7 @@
 //
 
 #import "PlaylistTableViewController.h"
+#import "MediaManager.h"
 
 @interface PlaylistTableViewController()<UITableViewDataSource>
 
@@ -30,15 +31,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"Testing";
-    cell.detailTextLabel.text = @"123";
+    MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
+    
+    cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
+    cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [[MediaManager shared] getPlaylist].count;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
