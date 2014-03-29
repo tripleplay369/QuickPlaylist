@@ -15,9 +15,13 @@
 
 @interface PageViewController()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
+@property UIViewController * pendingViewController;
+
 @end
 
 @implementation PageViewController
+
+@synthesize pendingViewController;
 
 - (void)viewDidLoad
 {
@@ -59,12 +63,14 @@
 
 -(void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers
 {
-    ;
+    pendingViewController = [pendingViewControllers objectAtIndex:0];
 }
 
 -(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
-    ;
+    if([pendingViewController isKindOfClass:[TableViewController class]] && [[previousViewControllers objectAtIndex:0] isKindOfClass:[FinalViewController class]]){
+        [[MediaManager shared] clearPlaylist];
+    }
 }
 
 @end
