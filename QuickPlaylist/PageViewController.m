@@ -51,7 +51,10 @@
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    if([viewController isKindOfClass:[PlaylistTableViewController class]]){
+    if([viewController isKindOfClass:[TableViewController class]]){
+        return [self.storyboard instantiateViewControllerWithIdentifier:@"help"];
+    }
+    else if([viewController isKindOfClass:[PlaylistTableViewController class]]){
         return [self.storyboard instantiateViewControllerWithIdentifier:@"table"];
     }
     else if([viewController isKindOfClass:[FinalViewController class]]){
