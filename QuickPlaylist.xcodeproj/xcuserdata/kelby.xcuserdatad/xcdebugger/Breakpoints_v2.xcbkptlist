@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuickPlaylist/PageViewController.m"
-            timestampString = "417820794.952207"
+            timestampString = "417825389.473126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-pageViewController:viewControllerAfterViewController:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QuickPlaylist/PageViewController.m"
-            timestampString = "417824497.549521"
+            timestampString = "417825389.473126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95">
+            startingLineNumber = "122"
+            endingLineNumber = "122">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

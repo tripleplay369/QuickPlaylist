@@ -16,12 +16,14 @@
 @interface PageViewController()<UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
 @property UIViewController * pendingViewController;
+@property NSInteger pageIndex;
 
 @end
 
 @implementation PageViewController
 
 @synthesize pendingViewController;
+@synthesize pageIndex;
 
 - (void)viewDidLoad
 {
@@ -30,6 +32,8 @@
     [self setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"help"]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     self.dataSource = self;
     self.delegate = self;
+    
+    pageIndex = 0;
 }
 
 -(UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -80,6 +84,29 @@
         [self performSelectorOnMainThread:@selector(reset) withObject:nil waitUntilDone:NO];
         [[MediaManager shared] clearPlaylist];
     }
+    
+    if([pendingViewController isKindOfClass:[HelpViewController class]]){
+        pageIndex = 0;
+    }
+    else if([pendingViewController isKindOfClass:[TableViewController class]]){
+        pageIndex = 1;
+    }
+    else if([pendingViewController isKindOfClass:[PlaylistTableViewController class]]){
+        pageIndex = 2;
+    }
+    else if([pendingViewController isKindOfClass:[FinalViewController class]]){
+        pageIndex = 3;
+    }
+}
+
+-(NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return 4;
+}
+
+-(NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    return pageIndex;
 }
 
 @end
