@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface FinalViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *ibTextField;
+- (IBAction)ibaSavePressed:(id)sender;
 
 @end

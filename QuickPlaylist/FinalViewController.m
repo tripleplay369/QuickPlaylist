@@ -14,9 +14,18 @@
 
 @implementation FinalViewController
 
+@synthesize ibTextField;
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [ibTextField performSelectorOnMainThread:@selector(becomeFirstResponder) withObject:nil waitUntilDone:NO];
+}
+
+- (IBAction)ibaSavePressed:(id)sender {
+}
 @end
