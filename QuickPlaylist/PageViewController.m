@@ -66,10 +66,15 @@
     pendingViewController = [pendingViewControllers objectAtIndex:0];
 }
 
+-(void)reset
+{
+    [self setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"table"]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
+
 -(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     if([pendingViewController isKindOfClass:[TableViewController class]] && [[previousViewControllers objectAtIndex:0] isKindOfClass:[FinalViewController class]]){
-        [self setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"help"]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        [self performSelectorOnMainThread:@selector(reset) withObject:nil waitUntilDone:NO];
         [[MediaManager shared] clearPlaylist];
     }
 }
