@@ -222,7 +222,7 @@
                                 </items>
                             </navigationBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSx-z6-ban">
-                                <rect key="frame" x="0.0" y="487" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem systemItem="rewind" id="UeL-NK-qm4"/>
@@ -236,7 +236,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" constant="37" id="pM8-c1-iTt"/>
+                            <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" id="Mgk-GY-FII"/>
                         </constraints>
                     </view>
                 </viewController>
