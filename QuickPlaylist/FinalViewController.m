@@ -19,6 +19,4 @@
     [super viewDidLoad];
 }
 
-- (IBAction)ibaSavePressed:(id)sender {
-}
 @end
