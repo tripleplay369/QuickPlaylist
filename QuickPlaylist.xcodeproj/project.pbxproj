@@ -29,6 +29,7 @@
 		A7692FD718E5AAA2000CFC91 /* MediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A7692FD618E5AAA2000CFC91 /* MediaManager.m */; };
 		A7692FDA18E5B61D000CFC91 /* MPMediaTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A7692FD918E5B61D000CFC91 /* MPMediaTester.m */; };
 		A778B90718E5BAA3001FF331 /* FinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A778B90618E5BAA3001FF331 /* FinalViewController.m */; };
+		A77C2D0018E9330A008E2173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77C2CFF18E9330A008E2173 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A7692FD918E5B61D000CFC91 /* MPMediaTester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPMediaTester.m; sourceTree = "<group>"; };
 		A778B90518E5BAA3001FF331 /* FinalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalViewController.h; sourceTree = "<group>"; };
 		A778B90618E5BAA3001FF331 /* FinalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalViewController.m; sourceTree = "<group>"; };
+		A77C2CFF18E9330A008E2173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A77C2D0018E9330A008E2173 /* AVFoundation.framework in Frameworks */,
 				A7692FD418E5AA07000CFC91 /* MediaPlayer.framework in Frameworks */,
 				A7692F8E18E59C93000CFC91 /* CoreGraphics.framework in Frameworks */,
 				A7692F9018E59C93000CFC91 /* UIKit.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		A7692F8A18E59C93000CFC91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A77C2CFF18E9330A008E2173 /* AVFoundation.framework */,
 				A7692FD318E5AA07000CFC91 /* MediaPlayer.framework */,
 				A7692F8B18E59C93000CFC91 /* Foundation.framework */,
 				A7692F8D18E59C93000CFC91 /* CoreGraphics.framework */,

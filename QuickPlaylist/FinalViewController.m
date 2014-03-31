@@ -8,9 +8,13 @@
 
 #import "FinalViewController.h"
 
+#import <AVFoundation/AVFoundation.h>
+
 #import "MediaManager.h"
 
 @interface FinalViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property AVAudioPlayer * player;
 
 @end
 
@@ -18,6 +22,7 @@
 
 @synthesize ibTable;
 @synthesize ibToolbar;
+@synthesize player;
 
 -(void)viewDidLoad
 {
@@ -82,7 +87,10 @@
 
 -(void)play:(id)sender
 {
-    ;
+    MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:0];
+    player = [[AVAudioPlayer alloc] initWithContentsOfURL:[song valueForProperty:MPMediaItemPropertyAssetURL] error:nil];
+    [player prepareToPlay];
+    [player play];
 }
 
 -(void)rewind:(id)sender
