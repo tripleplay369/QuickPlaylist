@@ -126,6 +126,9 @@
                             <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" id="Mgk-GY-FII"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ibTable" destination="1Os-ZD-pPb" id="ro0-jG-zmI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTI-io-QWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

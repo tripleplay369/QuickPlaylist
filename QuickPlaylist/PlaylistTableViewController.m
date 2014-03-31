@@ -9,7 +9,7 @@
 #import "PlaylistTableViewController.h"
 #import "MediaManager.h"
 
-@interface PlaylistTableViewController()<UITableViewDataSource>
+@interface PlaylistTableViewController()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
     ibTable.dataSource = self;
+    ibTable.delegate = self;
     [ibTable setEditing:YES animated:NO];
 }
 

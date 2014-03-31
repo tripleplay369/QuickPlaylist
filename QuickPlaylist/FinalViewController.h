@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FinalViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *ibTable;
 
 @end
