@@ -17,6 +17,7 @@
 @implementation FinalViewController
 
 @synthesize ibTable;
+@synthesize ibToolbar;
 
 -(void)viewDidLoad
 {
@@ -24,6 +25,8 @@
     
     ibTable.delegate = self;
     ibTable.dataSource = self;
+    
+    [self setUpToolbar:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -61,6 +64,35 @@
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return nil;
+}
+
+-(void)setUpToolbar:(BOOL)play
+{
+    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRewind target:self action:@selector(rewind:)];
+    
+    UIBarButtonSystemItem type = play ? UIBarButtonSystemItemPlay : UIBarButtonSystemItemPause;
+    UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:type target:self action:@selector(play:)];
+    
+    UIBarButtonItem * item3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(fastForward:)];
+    
+    UIBarButtonItem * flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    [ibToolbar setItems:@[item1, flex, item2, flex, item3]];
+}
+
+-(void)play:(id)sender
+{
+    ;
+}
+
+-(void)rewind:(id)sender
+{
+    ;
+}
+
+-(void)fastForward:(id)sender
+{
+    ;
 }
 
 @end

@@ -111,13 +111,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSx-z6-ban">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem systemItem="rewind" id="UeL-NK-qm4"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="swS-ZY-S0S"/>
-                                    <barButtonItem systemItem="play" id="gyt-yz-H1o"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="GCP-Fw-OXc"/>
-                                    <barButtonItem systemItem="fastForward" id="aNm-6b-YQL"/>
-                                </items>
+                                <items/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                         </subviews>
@@ -128,6 +122,7 @@
                     </view>
                     <connections>
                         <outlet property="ibTable" destination="1Os-ZD-pPb" id="ro0-jG-zmI"/>
+                        <outlet property="ibToolbar" destination="oSx-z6-ban" id="iM3-yU-5GE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTI-io-QWu" userLabel="First Responder" sceneMemberID="firstResponder"/>

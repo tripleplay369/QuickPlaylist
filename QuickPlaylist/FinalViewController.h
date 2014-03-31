@@ -10,5 +10,6 @@
 
 @interface FinalViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *ibTable;
+@property (weak, nonatomic) IBOutlet UIToolbar *ibToolbar;
 
 @end
