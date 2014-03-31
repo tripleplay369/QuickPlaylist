@@ -15,17 +15,19 @@
 
 @implementation PlaylistTableViewController
 
+@synthesize ibTable;
+
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    [self.tableView setEditing:YES animated:NO];
+    ibTable.dataSource = self;
+    [ibTable setEditing:YES animated:NO];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +80,7 @@
     if(editingStyle == UITableViewCellEditingStyleDelete){
         MPMediaItem * toDelete = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
         [[MediaManager shared] removeSongFromPlaylist:toDelete];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
+        [ibTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }
 

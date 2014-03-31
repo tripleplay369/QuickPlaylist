@@ -10,24 +10,29 @@
 
 #import "MediaManager.h"
 
-@interface TableViewController()<UITableViewDataSource>
+@interface TableViewController()<UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray * songs;
+@property UIRefreshControl * refreshControl;
 
 @end
 
 @implementation TableViewController
 
 @synthesize songs;
+@synthesize ibTable;
+@synthesize refreshControl;
 
 -(void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
+    ibTable.dataSource = self;
+    ibTable.delegate = self;
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [ibTable addSubview:refreshControl];
     
     [self refresh];
 }
@@ -42,8 +47,8 @@
     
     songs = randomSongs;
     
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    [refreshControl endRefreshing];
+    [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +78,7 @@
     MPMediaItem * song = [songs objectAtIndex:[indexPath indexAtPosition:1]];
     [[MediaManager shared] addSongToPlaylist:song];
     [songs removeObject:song];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
+    [ibTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationRight];
     return nil;
 }
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlaylistTableViewController : UITableViewController
+@interface PlaylistTableViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITableView *ibTable;
 
 @end

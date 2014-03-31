@@ -43,6 +43,9 @@
     return arr;
 }
 
+-(void)addFilterPredicate:(MPMediaPredicate *)predicate
+{}
+
 @end
 
 #endif
