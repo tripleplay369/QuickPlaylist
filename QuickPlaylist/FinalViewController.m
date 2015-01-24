@@ -118,10 +118,16 @@
         if(currentIndex >= [[MediaManager shared] getPlaylist].count || currentIndex < 0){
             currentIndex = 0;
             [self setUpToolbar:YES];
+            [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = nil;
             return;
         }
         
         MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:currentIndex];
+        
+        [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = @{MPMediaItemPropertyTitle: song.title,
+                                                                  MPMediaItemPropertyArtist: song.artist,
+                                                                  MPMediaItemPropertyArtwork: song.artwork};
+        
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:[song valueForProperty:MPMediaItemPropertyAssetURL] error:nil];
         player.delegate = self;
         [player prepareToPlay];
