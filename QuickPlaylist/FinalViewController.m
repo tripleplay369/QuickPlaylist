@@ -91,6 +91,7 @@
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self setCellIndex:currentIndex isPlaying:NO];
     player = nil;
     currentIndex = (int)indexPath.row;
     [self play:nil];
@@ -134,6 +135,7 @@
         player.delegate = self;
         [player prepareToPlay];
         [player play];
+        [self setCellIndex:currentIndex isPlaying:YES];
         [self setUpToolbar:NO];
     }
     else{
@@ -148,8 +150,21 @@
     }
 }
 
+-(void)setCellIndex:(int)index isPlaying:(BOOL)playing
+{
+    NSUInteger indexes[] = {0, index};
+    UITableViewCell * cell = [ibTable cellForRowAtIndexPath:[NSIndexPath indexPathWithIndexes:indexes length:2]];
+    if(playing){
+        [cell setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0]];
+    }
+    else{
+        [cell setBackgroundColor:[UIColor whiteColor]];
+    }
+}
+
 -(void)rewind:(id)sender
 {
+    [self setCellIndex:currentIndex isPlaying:NO];
     if(player.currentTime < 10.0){
         --currentIndex;
     }
@@ -159,6 +174,7 @@
 
 -(void)fastForward:(id)sender
 {
+    [self setCellIndex:currentIndex isPlaying:NO];
     ++currentIndex;
     player = nil;
     [self play:nil];
@@ -166,6 +182,7 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)p successfully:(BOOL)flag
 {
+    [self setCellIndex:currentIndex isPlaying:NO];
     ++currentIndex;
     player = nil;
     [self play:nil];
@@ -173,6 +190,7 @@
 
 -(void)stop
 {
+    [self setCellIndex:currentIndex isPlaying:NO];
     player = nil;
     currentIndex = 0;
     [self setUpToolbar:YES];
