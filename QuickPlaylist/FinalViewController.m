@@ -57,25 +57,6 @@
     [super viewWillDisappear:animated];
 }
 
-- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
-{
-    if (receivedEvent.type == UIEventTypeRemoteControl) {
-        switch (receivedEvent.subtype) {
-            case UIEventSubtypeRemoteControlTogglePlayPause:
-                [self play:nil];
-                break;
-            case UIEventSubtypeRemoteControlPreviousTrack:
-                [self rewind:nil];
-                break;
-            case UIEventSubtypeRemoteControlNextTrack:
-                [self fastForward:nil];
-                break;
-            default:
-                break;
-        }
-    }
-}
-
 -(BOOL)canBecomeFirstResponder
 {
     return YES;

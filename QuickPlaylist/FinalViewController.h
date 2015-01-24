@@ -12,4 +12,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *ibTable;
 @property (weak, nonatomic) IBOutlet UIToolbar *ibToolbar;
 
+-(void)play:(id)sender;
+-(void)rewind:(id)sender;
+-(void)fastForward:(id)sender;
+
 @end

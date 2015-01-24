@@ -109,4 +109,9 @@
     return pageIndex;
 }
 
+-(UIViewController *)currentViewController
+{
+    return [self.viewControllers objectAtIndex:0];
+}
+
 @end
