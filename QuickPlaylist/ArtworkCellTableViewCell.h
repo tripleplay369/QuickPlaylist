@@ -10,4 +10,6 @@
 
 @interface ArtworkCellTableViewCell : UITableViewCell
 
+@property BOOL leaveRoomForIcon;
+
 @end

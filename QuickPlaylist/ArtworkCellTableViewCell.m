@@ -8,7 +8,13 @@
 
 #import "ArtworkCellTableViewCell.h"
 
+@interface ArtworkCellTableViewCell()
+
+@end
+
 @implementation ArtworkCellTableViewCell
+
+@synthesize leaveRoomForIcon;
 
 - (void)awakeFromNib {
     // Initialization code
@@ -24,7 +30,7 @@
 {
     [super layoutSubviews];
     self.imageView.frame = CGRectMake(7, 7, 30, 30);
-    self.textLabel.frame = CGRectMake(43, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
+    self.textLabel.frame = CGRectMake(43, self.textLabel.frame.origin.y, self.frame.size.width - 43 - 5 - (leaveRoomForIcon ? 40 : 0), self.textLabel.frame.size.height);
     self.detailTextLabel.frame = CGRectMake(43, self.detailTextLabel.frame.origin.y, self.detailTextLabel.frame.size.width, self.detailTextLabel.frame.size.height);
     self.separatorInset = UIEdgeInsetsZero;
     self.layoutMargins = UIEdgeInsetsZero;

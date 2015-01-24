@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "MediaManager.h"
+#import "ArtworkCellTableViewCell.h"
 
 const int VIEW_TAG = 100;
 
@@ -40,6 +41,7 @@ typedef enum{
     
     ibTable.delegate = self;
     ibTable.dataSource = self;
+    ibTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     currentIndex = 0;
     
@@ -71,16 +73,17 @@ typedef enum{
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ArtworkCellTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:CellIdentifier];
+        cell = [[ArtworkCellTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
     
     cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
     cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
+    cell.imageView.image = [song.artwork imageWithSize:CGSizeMake(43, 43)];
     
     [[cell.contentView viewWithTag:VIEW_TAG] removeFromSuperview];
     
@@ -163,7 +166,7 @@ typedef enum{
 -(void)setCellIndex:(int)index toState:(SongState)state
 {
     NSUInteger indexes[] = {0, index};
-    UITableViewCell * cell = [ibTable cellForRowAtIndexPath:[NSIndexPath indexPathWithIndexes:indexes length:2]];
+    ArtworkCellTableViewCell * cell = (ArtworkCellTableViewCell *)[ibTable cellForRowAtIndexPath:[NSIndexPath indexPathWithIndexes:indexes length:2]];
     
     [[cell.contentView viewWithTag:VIEW_TAG] removeFromSuperview];
     
@@ -172,12 +175,20 @@ typedef enum{
         imageView.frame = CGRectMake(self.view.frame.size.width - 30, 12, 20, 20);
         imageView.tag = VIEW_TAG;
         [cell.contentView addSubview:imageView];
+        cell.leaveRoomForIcon = YES;
+        [cell layoutSubviews];
     }
     else if(state == STATE_PAUSE){
         UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pause.png"]];
         imageView.frame = CGRectMake(self.view.frame.size.width - 30, 12, 20, 20);
         imageView.tag = VIEW_TAG;
         [cell.contentView addSubview:imageView];
+        cell.leaveRoomForIcon = YES;
+        [cell layoutSubviews];
+    }
+    else{
+        cell.leaveRoomForIcon = NO;
+        [cell layoutSubviews];
     }
 }
 
