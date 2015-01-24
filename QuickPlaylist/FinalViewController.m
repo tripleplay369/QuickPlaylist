@@ -114,6 +114,8 @@
 
 -(void)play:(id)sender
 {
+    if([[MediaManager shared] getPlaylist].count == 0) return;
+    
     if(player == nil){
         if(currentIndex >= [[MediaManager shared] getPlaylist].count || currentIndex < 0){
             currentIndex = 0;
@@ -167,6 +169,13 @@
     ++currentIndex;
     player = nil;
     [self play:nil];
+}
+
+-(void)stop
+{
+    player = nil;
+    currentIndex = 0;
+    [self setUpToolbar:YES];
 }
 
 @end

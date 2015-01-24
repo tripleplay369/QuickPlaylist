@@ -15,5 +15,6 @@
 -(void)play:(id)sender;
 -(void)rewind:(id)sender;
 -(void)fastForward:(id)sender;
+-(void)stop;
 
 @end
