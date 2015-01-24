@@ -51,6 +51,8 @@ static MediaManager * shared_p = nil;
         MPMediaQuery * everything = [[MPMediaQuery alloc] init];
         MPMediaPropertyPredicate * predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
         [everything addFilterPredicate:predicate];
+        predicate = [MPMediaPropertyPredicate predicateWithValue:@(NO) forProperty:MPMediaItemPropertyIsCloudItem];
+        [everything addFilterPredicate:predicate];
 
         allSongs = [everything items];
     }
