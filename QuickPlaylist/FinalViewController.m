@@ -15,6 +15,7 @@
 @interface FinalViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property AVAudioPlayer * player;
+@property int currentIndex;
 
 @end
 
@@ -23,6 +24,7 @@
 @synthesize ibTable;
 @synthesize ibToolbar;
 @synthesize player;
+@synthesize currentIndex;
 
 -(void)viewDidLoad
 {
@@ -30,6 +32,8 @@
     
     ibTable.delegate = self;
     ibTable.dataSource = self;
+    
+    currentIndex = 0;
     
     [self setUpToolbar:YES];
 }
@@ -68,6 +72,13 @@
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(player != nil && player.isPlaying){
+        [player stop];
+        player = nil;
+    }
+    currentIndex = (int)indexPath.row;
+    [self play:nil];
+    
     return nil;
 }
 
@@ -87,10 +98,23 @@
 
 -(void)play:(id)sender
 {
-    MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:0];
-    player = [[AVAudioPlayer alloc] initWithContentsOfURL:[song valueForProperty:MPMediaItemPropertyAssetURL] error:nil];
-    [player prepareToPlay];
-    [player play];
+    if(player == nil){
+        MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:currentIndex];
+        player = [[AVAudioPlayer alloc] initWithContentsOfURL:[song valueForProperty:MPMediaItemPropertyAssetURL] error:nil];
+        [player prepareToPlay];
+        [player play];
+        [self setUpToolbar:NO];
+    }
+    else{
+        if(player.isPlaying){
+            [player pause];
+            [self setUpToolbar:YES];
+        }
+        else{
+            [player play];
+            [self setUpToolbar:NO];
+        }
+    }
 }
 
 -(void)rewind:(id)sender
