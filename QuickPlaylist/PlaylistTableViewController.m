@@ -43,8 +43,11 @@
     
     MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
     
+    NSMutableAttributedString * detail = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ %@", song.artist, song.albumTitle]];
+    [detail addAttribute:NSForegroundColorAttributeName value:[UIColor grayColor] range:NSMakeRange(song.artist.length, song.albumTitle.length + 1)];
+    
     cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
-    cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
+    cell.detailTextLabel.attributedText = detail;
     
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
