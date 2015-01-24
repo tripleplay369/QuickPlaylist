@@ -12,7 +12,7 @@
 
 #import "MediaManager.h"
 
-@interface FinalViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface FinalViewController ()<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
 
 @property AVAudioPlayer * player;
 @property int currentIndex;
@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
     
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
     ibTable.delegate = self;
     ibTable.dataSource = self;
     
@@ -40,7 +42,43 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
+    
     [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
+{
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        switch (receivedEvent.subtype) {
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self play:nil];
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self rewind:nil];
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self fastForward:nil];
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+-(BOOL)canBecomeFirstResponder
+{
+    return YES;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,10 +110,7 @@
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(player != nil && player.isPlaying){
-        [player stop];
-        player = nil;
-    }
+    player = nil;
     currentIndex = (int)indexPath.row;
     [self play:nil];
     
@@ -99,8 +134,15 @@
 -(void)play:(id)sender
 {
     if(player == nil){
+        if(currentIndex >= [[MediaManager shared] getPlaylist].count || currentIndex < 0){
+            currentIndex = 0;
+            [self setUpToolbar:YES];
+            return;
+        }
+        
         MPMediaItem * song = [[[MediaManager shared] getPlaylist] objectAtIndex:currentIndex];
         player = [[AVAudioPlayer alloc] initWithContentsOfURL:[song valueForProperty:MPMediaItemPropertyAssetURL] error:nil];
+        player.delegate = self;
         [player prepareToPlay];
         [player play];
         [self setUpToolbar:NO];
@@ -119,12 +161,25 @@
 
 -(void)rewind:(id)sender
 {
-    ;
+    if(player.currentTime < 10.0){
+        --currentIndex;
+    }
+    player = nil;
+    [self play:nil];
 }
 
 -(void)fastForward:(id)sender
 {
-    ;
+    ++currentIndex;
+    player = nil;
+    [self play:nil];
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)p successfully:(BOOL)flag
+{
+    ++currentIndex;
+    player = nil;
+    [self play:nil];
 }
 
 @end

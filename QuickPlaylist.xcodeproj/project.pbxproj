@@ -238,6 +238,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Kelby Green";
 				TargetAttributes = {
+					A7692F8718E59C93000CFC91 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					A7692FAB18E59C94000CFC91 = {
 						TestTargetID = A7692F8718E59C93000CFC91;
 					};
