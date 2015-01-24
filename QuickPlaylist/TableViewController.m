@@ -9,6 +9,7 @@
 #import "TableViewController.h"
 
 #import "MediaManager.h"
+#import "ArtworkCellTableViewCell.h"
 
 @interface TableViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -29,6 +30,7 @@
     
     ibTable.dataSource = self;
     ibTable.delegate = self;
+    ibTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
     refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
@@ -54,16 +56,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    ArtworkCellTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:CellIdentifier];
+        cell = [[ArtworkCellTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:CellIdentifier];
     }
     
     MPMediaItem * song = [songs objectAtIndex:[indexPath indexAtPosition:1]];
     
     cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
     cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
+    cell.imageView.image = [song.artwork imageWithSize:CGSizeMake(43, 43)];
     
     return cell;
 }

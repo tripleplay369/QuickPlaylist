@@ -23,6 +23,7 @@
     
     ibTable.dataSource = self;
     ibTable.delegate = self;
+    ibTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     [ibTable setEditing:YES animated:NO];
 }
 
@@ -44,6 +45,10 @@
     
     cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
     cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
+    
+    cell.separatorInset = UIEdgeInsetsZero;
+    cell.layoutMargins = UIEdgeInsetsZero;
+    [cell setPreservesSuperviewLayoutMargins:NO];
     
     return cell;
 }

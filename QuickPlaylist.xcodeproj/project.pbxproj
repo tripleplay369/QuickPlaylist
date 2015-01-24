@@ -32,6 +32,7 @@
 		A77C2D0018E9330A008E2173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77C2CFF18E9330A008E2173 /* AVFoundation.framework */; };
 		A7C30A321A741481000520F9 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A301A741481000520F9 /* pause.png */; };
 		A7C30A331A741481000520F9 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A311A741481000520F9 /* play.png */; };
+		A7C30A371A741B6F000520F9 /* ArtworkCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		A77C2CFF18E9330A008E2173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A7C30A301A741481000520F9 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A7C30A311A741481000520F9 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		A7C30A351A741B6F000520F9 /* ArtworkCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCellTableViewCell.h; sourceTree = "<group>"; };
+		A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCellTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +166,8 @@
 				A778B90518E5BAA3001FF331 /* FinalViewController.h */,
 				A778B90618E5BAA3001FF331 /* FinalViewController.m */,
 				A7692FD918E5B61D000CFC91 /* MPMediaTester.m */,
+				A7C30A351A741B6F000520F9 /* ArtworkCellTableViewCell.h */,
+				A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */,
 			);
 			path = QuickPlaylist;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 			files = (
 				A778B90718E5BAA3001FF331 /* FinalViewController.m in Sources */,
 				A7692FCB18E5A0D6000CFC91 /* HelpViewController.m in Sources */,
+				A7C30A371A741B6F000520F9 /* ArtworkCellTableViewCell.m in Sources */,
 				A7692FD218E5A4B3000CFC91 /* PlaylistTableViewController.m in Sources */,
 				A7692F9C18E59C93000CFC91 /* AppDelegate.m in Sources */,
 				A7692F9818E59C93000CFC91 /* main.m in Sources */,
