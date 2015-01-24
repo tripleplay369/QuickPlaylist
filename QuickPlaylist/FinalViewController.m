@@ -23,6 +23,7 @@ typedef enum{
 
 @property AVAudioPlayer * player;
 @property int currentIndex;
+@property BOOL needsReload;
 
 @end
 
@@ -32,6 +33,7 @@ typedef enum{
 @synthesize ibToolbar;
 @synthesize player;
 @synthesize currentIndex;
+@synthesize needsReload;
 
 -(void)viewDidLoad
 {
@@ -52,7 +54,10 @@ typedef enum{
 {
     [super viewDidAppear:animated];
     
-    [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+    if(needsReload){
+        [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        needsReload = NO;
+    }
     
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
@@ -63,6 +68,11 @@ typedef enum{
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];
     [super viewWillDisappear:animated];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    needsReload = YES;
 }
 
 -(BOOL)canBecomeFirstResponder
