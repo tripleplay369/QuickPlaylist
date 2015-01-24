@@ -12,6 +12,12 @@
 
 #import "MediaManager.h"
 
+const int VIEW_TAG = 100;
+
+typedef enum{
+    STATE_PLAY, STATE_PAUSE, STATE_STOP
+}SongState;
+
 @interface FinalViewController ()<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate>
 
 @property AVAudioPlayer * player;
@@ -76,6 +82,8 @@
     cell.textLabel.text = [song valueForProperty: MPMediaItemPropertyTitle];
     cell.detailTextLabel.text = [song valueForProperty:MPMediaItemPropertyArtist];
     
+    [[cell.contentView viewWithTag:VIEW_TAG] removeFromSuperview];
+    
     return cell;
 }
 
@@ -91,7 +99,7 @@
 
 -(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self setCellIndex:currentIndex isPlaying:NO];
+    [self setCellIndex:currentIndex toState:STATE_STOP];
     player = nil;
     currentIndex = (int)indexPath.row;
     [self play:nil];
@@ -135,36 +143,47 @@
         player.delegate = self;
         [player prepareToPlay];
         [player play];
-        [self setCellIndex:currentIndex isPlaying:YES];
+        [self setCellIndex:currentIndex toState:STATE_PLAY];
         [self setUpToolbar:NO];
     }
     else{
         if(player.isPlaying){
             [player pause];
+            [self setCellIndex:currentIndex toState:STATE_PAUSE];
             [self setUpToolbar:YES];
         }
         else{
             [player play];
+            [self setCellIndex:currentIndex toState:STATE_PLAY];
             [self setUpToolbar:NO];
         }
     }
 }
 
--(void)setCellIndex:(int)index isPlaying:(BOOL)playing
+-(void)setCellIndex:(int)index toState:(SongState)state
 {
     NSUInteger indexes[] = {0, index};
     UITableViewCell * cell = [ibTable cellForRowAtIndexPath:[NSIndexPath indexPathWithIndexes:indexes length:2]];
-    if(playing){
-        [cell setBackgroundColor:[UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0]];
+    
+    [[cell.contentView viewWithTag:VIEW_TAG] removeFromSuperview];
+    
+    if(state == STATE_PLAY){
+        UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"play.png"]];
+        imageView.frame = CGRectMake(self.view.frame.size.width - 30, 12, 20, 20);
+        imageView.tag = VIEW_TAG;
+        [cell.contentView addSubview:imageView];
     }
-    else{
-        [cell setBackgroundColor:[UIColor whiteColor]];
+    else if(state == STATE_PAUSE){
+        UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pause.png"]];
+        imageView.frame = CGRectMake(self.view.frame.size.width - 30, 12, 20, 20);
+        imageView.tag = VIEW_TAG;
+        [cell.contentView addSubview:imageView];
     }
 }
 
 -(void)rewind:(id)sender
 {
-    [self setCellIndex:currentIndex isPlaying:NO];
+    [self setCellIndex:currentIndex toState:STATE_STOP];
     if(player.currentTime < 10.0){
         --currentIndex;
     }
@@ -174,7 +193,7 @@
 
 -(void)fastForward:(id)sender
 {
-    [self setCellIndex:currentIndex isPlaying:NO];
+    [self setCellIndex:currentIndex toState:STATE_STOP];
     ++currentIndex;
     player = nil;
     [self play:nil];
@@ -182,7 +201,7 @@
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)p successfully:(BOOL)flag
 {
-    [self setCellIndex:currentIndex isPlaying:NO];
+    [self setCellIndex:currentIndex toState:STATE_STOP];
     ++currentIndex;
     player = nil;
     [self play:nil];
@@ -190,7 +209,7 @@
 
 -(void)stop
 {
-    [self setCellIndex:currentIndex isPlaying:NO];
+    [self setCellIndex:currentIndex toState:STATE_STOP];
     player = nil;
     currentIndex = 0;
     [self setUpToolbar:YES];

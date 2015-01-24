@@ -30,6 +30,8 @@
 		A7692FDA18E5B61D000CFC91 /* MPMediaTester.m in Sources */ = {isa = PBXBuildFile; fileRef = A7692FD918E5B61D000CFC91 /* MPMediaTester.m */; };
 		A778B90718E5BAA3001FF331 /* FinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A778B90618E5BAA3001FF331 /* FinalViewController.m */; };
 		A77C2D0018E9330A008E2173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77C2CFF18E9330A008E2173 /* AVFoundation.framework */; };
+		A7C30A321A741481000520F9 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A301A741481000520F9 /* pause.png */; };
+		A7C30A331A741481000520F9 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A311A741481000520F9 /* play.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		A778B90518E5BAA3001FF331 /* FinalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinalViewController.h; sourceTree = "<group>"; };
 		A778B90618E5BAA3001FF331 /* FinalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinalViewController.m; sourceTree = "<group>"; };
 		A77C2CFF18E9330A008E2173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A7C30A301A741481000520F9 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		A7C30A311A741481000520F9 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		A7692F9118E59C93000CFC91 /* QuickPlaylist */ = {
 			isa = PBXGroup;
 			children = (
+				A7C30A341A741488000520F9 /* images */,
 				A7692F9A18E59C93000CFC91 /* AppDelegate.h */,
 				A7692F9B18E59C93000CFC91 /* AppDelegate.m */,
 				A7692F9D18E59C93000CFC91 /* Main_iPhone.storyboard */,
@@ -189,6 +194,15 @@
 				A7692FB618E59C94000CFC91 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7C30A341A741488000520F9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A7C30A301A741481000520F9 /* pause.png */,
+				A7C30A311A741481000520F9 /* play.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +290,10 @@
 			files = (
 				A7692FA218E59C94000CFC91 /* Main_iPad.storyboard in Resources */,
 				A7692FA718E59C94000CFC91 /* Images.xcassets in Resources */,
+				A7C30A321A741481000520F9 /* pause.png in Resources */,
 				A7692F9F18E59C93000CFC91 /* Main_iPhone.storyboard in Resources */,
 				A7692F9618E59C93000CFC91 /* InfoPlist.strings in Resources */,
+				A7C30A331A741481000520F9 /* play.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
