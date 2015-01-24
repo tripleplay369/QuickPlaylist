@@ -80,6 +80,8 @@
 
 -(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
+    if(!completed) return;
+    
     if([pendingViewController isKindOfClass:[TableViewController class]] && [[previousViewControllers objectAtIndex:0] isKindOfClass:[FinalViewController class]]){
         [self performSelectorOnMainThread:@selector(reset) withObject:nil waitUntilDone:NO];
         [[MediaManager shared] clearPlaylist];
