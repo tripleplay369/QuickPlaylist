@@ -33,6 +33,7 @@
 		A7C30A321A741481000520F9 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A301A741481000520F9 /* pause.png */; };
 		A7C30A331A741481000520F9 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A311A741481000520F9 /* play.png */; };
 		A7C30A371A741B6F000520F9 /* ArtworkCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */; };
+		A7CB23C61A74377A0023700E /* CustomPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		A7C30A311A741481000520F9 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		A7C30A351A741B6F000520F9 /* ArtworkCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCellTableViewCell.h; sourceTree = "<group>"; };
 		A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCellTableViewCell.m; sourceTree = "<group>"; };
+		A7CB23C41A74377A0023700E /* CustomPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPullToRefreshControl.h; sourceTree = "<group>"; };
+		A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPullToRefreshControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 		A7692F9118E59C93000CFC91 /* QuickPlaylist */ = {
 			isa = PBXGroup;
 			children = (
+				A7CB23C41A74377A0023700E /* CustomPullToRefreshControl.h */,
+				A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */,
 				A7C30A341A741488000520F9 /* images */,
 				A7692F9A18E59C93000CFC91 /* AppDelegate.h */,
 				A7692F9B18E59C93000CFC91 /* AppDelegate.m */,
@@ -324,6 +329,7 @@
 				A7692F9C18E59C93000CFC91 /* AppDelegate.m in Sources */,
 				A7692F9818E59C93000CFC91 /* main.m in Sources */,
 				A7692FC518E59D0C000CFC91 /* PageViewController.m in Sources */,
+				A7CB23C61A74377A0023700E /* CustomPullToRefreshControl.m in Sources */,
 				A7692FD718E5AAA2000CFC91 /* MediaManager.m in Sources */,
 				A7692FDA18E5B61D000CFC91 /* MPMediaTester.m in Sources */,
 				A7692FC818E59EFC000CFC91 /* TableViewController.m in Sources */,

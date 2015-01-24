@@ -10,11 +10,12 @@
 
 #import "MediaManager.h"
 #import "ArtworkCellTableViewCell.h"
+#import "CustomPullToRefreshControl.h"
 
 @interface TableViewController()<UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray * songs;
-@property UIRefreshControl * refreshControl;
+@property CustomPullToRefreshControl * refreshControl;
 
 @end
 
@@ -32,9 +33,9 @@
     ibTable.delegate = self;
     ibTable.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl = [[CustomPullToRefreshControl alloc] initInScrollView:ibTable];
+    refreshControl.tintColor = [UIColor blackColor];
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    [ibTable addSubview:refreshControl];
     
     [self refresh];
 }
