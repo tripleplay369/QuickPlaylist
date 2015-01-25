@@ -15,7 +15,7 @@
 +(MediaManager *)shared;
 -(NSMutableArray *)getRandomSongs:(int)n;
 -(void)addSongToPlaylist:(MPMediaItem *)song;
--(void)removeSongFromPlaylist:(MPMediaItem *)song;
+-(void)removeSongFromPlaylist:(int)index;
 -(NSArray *)getPlaylist;
 -(void)clearPlaylist;
 -(void)moveIndex:(int)startIndex toIndex:(int)endIndex;

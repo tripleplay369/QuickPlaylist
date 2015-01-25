@@ -109,7 +109,7 @@
 {
     if(editingStyle == UITableViewCellEditingStyleDelete){
         MPMediaItem * toDelete = [[[MediaManager shared] getPlaylist] objectAtIndex:[indexPath indexAtPosition:1]];
-        [[MediaManager shared] removeSongFromPlaylist:toDelete];
+        [[MediaManager shared] removeSongFromPlaylist:[indexPath indexAtPosition:1]];
         [ibTable deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationLeft];
     }
 }

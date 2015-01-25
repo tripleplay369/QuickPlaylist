@@ -74,9 +74,9 @@ static MediaManager * shared_p = nil;
     [playlist addObject:song];
 }
 
--(void)removeSongFromPlaylist:(MPMediaItem *)song
+-(void)removeSongFromPlaylist:(int)index;
 {
-    [playlist removeObject:song];
+    [playlist removeObjectAtIndex:index];
 }
 
 -(NSArray *)getPlaylist
