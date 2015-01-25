@@ -111,7 +111,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Play in Music Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kum-If-EVI">
                                 <rect key="frame" x="60" y="392" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,7 +120,7 @@
                         <constraints>
                             <constraint firstItem="2NB-Xx-9TX" firstAttribute="centerX" secondItem="Kum-If-EVI" secondAttribute="centerX" id="6l2-rc-SlF"/>
                             <constraint firstAttribute="centerY" secondItem="2NB-Xx-9TX" secondAttribute="centerY" id="9gK-Rq-1JE"/>
-                            <constraint firstItem="Kum-If-EVI" firstAttribute="top" secondItem="2NB-Xx-9TX" secondAttribute="bottom" id="fUD-x1-T34"/>
+                            <constraint firstItem="Kum-If-EVI" firstAttribute="top" secondItem="2NB-Xx-9TX" secondAttribute="bottom" constant="-10" id="fUD-x1-T34"/>
                         </constraints>
                     </view>
                     <connections>
