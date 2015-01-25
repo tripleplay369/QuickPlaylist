@@ -35,7 +35,7 @@
     self.separatorInset = UIEdgeInsetsZero;
     self.layoutMargins = UIEdgeInsetsZero;
     [self setPreservesSuperviewLayoutMargins:NO];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 @end
