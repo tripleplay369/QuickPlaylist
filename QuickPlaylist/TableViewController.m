@@ -16,6 +16,7 @@
 
 @property NSMutableArray * songs;
 @property CustomPullToRefreshControl * refreshControl;
+@property BOOL initialRefresh;
 
 @end
 
@@ -24,6 +25,7 @@
 @synthesize songs;
 @synthesize ibTable;
 @synthesize refreshControl;
+@synthesize initialRefresh;
 
 -(void)viewDidLoad
 {
@@ -37,6 +39,7 @@
     refreshControl.tintColor = [UIColor blackColor];
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
+    initialRefresh = YES;
     [self refresh];
 }
 
@@ -52,7 +55,13 @@
     songs = randomSongs;
     
     [refreshControl endRefreshing];
-    [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
+    if(initialRefresh){
+        initialRefresh = NO;
+        [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    }
+    else{
+        [ibTable reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
