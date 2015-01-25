@@ -36,7 +36,7 @@
     
     if(playlist.count == 0) return;
     
-    MPMusicPlayerController * player = [MPMusicPlayerController iPodMusicPlayer];
+    MPMusicPlayerController * player = [MPMusicPlayerController systemMusicPlayer];
     [player setQueueWithItemCollection:[MPMediaItemCollection collectionWithItems:playlist]];
     [player setNowPlayingItem:playlist[0]];
     [player prepareToPlay];
