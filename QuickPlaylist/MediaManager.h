@@ -13,7 +13,7 @@
 @interface MediaManager : NSObject
 
 +(MediaManager *)shared;
--(MPMediaItem *)getRandomSong;
+-(NSMutableArray *)getRandomSongs:(int)n;
 -(void)addSongToPlaylist:(MPMediaItem *)song;
 -(void)removeSongFromPlaylist:(MPMediaItem *)song;
 -(NSArray *)getPlaylist;

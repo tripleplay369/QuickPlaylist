@@ -68,10 +68,7 @@
 {
     int songsPerPage = (ibTable.frame.size.height / 44.0) - 1;
     
-    NSMutableArray * randomSongs = [NSMutableArray array];
-    for(int i = 0; i < songsPerPage; ++i){
-        [randomSongs addObject:[[MediaManager shared] getRandomSong]];
-    }
+    NSMutableArray * randomSongs = [[MediaManager shared] getRandomSongs:songsPerPage];
     
     songs = randomSongs;
     

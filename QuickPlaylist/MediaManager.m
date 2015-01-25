@@ -45,7 +45,7 @@ static MediaManager * shared_p = nil;
     playlist = [NSMutableArray array];
 }
 
--(MPMediaItem *)getRandomSong
+-(NSMutableArray *)getRandomSongs:(int)n
 {
     if(!allSongs){
         MPMediaQuery * everything = [[MPMediaQuery alloc] init];
@@ -57,9 +57,16 @@ static MediaManager * shared_p = nil;
         allSongs = [everything items];
     }
     
-#warning doesn't work with no songs in library
-    int trackNumber = arc4random() % [allSongs count];
-    return [allSongs objectAtIndex:trackNumber];
+    NSMutableSet * songs = [NSMutableSet set];
+    while(songs.count < n && songs.count < allSongs.count){
+        int trackNumber = arc4random() % [allSongs count];
+        MPMediaItem * song = [allSongs objectAtIndex:trackNumber];
+        if(![songs containsObject:song]){
+            [songs addObject:song];
+        }
+    }
+    
+    return [NSMutableArray arrayWithArray:[songs allObjects]];
 }
 
 -(void)addSongToPlaylist:(MPMediaItem *)song
