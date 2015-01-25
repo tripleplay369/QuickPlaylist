@@ -30,6 +30,11 @@
     return object == self;
 }
 
+-(NSUInteger)hash
+{
+    return rand();
+}
+
 @end
 
 @implementation MPMediaQuery

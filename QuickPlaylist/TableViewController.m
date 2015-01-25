@@ -40,7 +40,13 @@
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     initialRefresh = YES;
-    [self refresh];
+}
+
+-(void)viewDidLayoutSubviews
+{
+    if(initialRefresh){
+        [self refresh];
+    }
 }
 
 -(void)viewWillLayoutSubviews{
@@ -66,7 +72,7 @@
 
 -(void)refresh
 {
-    int songsPerPage = (ibTable.frame.size.height / 44.0) - 1;
+    int songsPerPage = (ibTable.frame.size.height / 44.0);
     
     NSMutableArray * randomSongs = [[MediaManager shared] getRandomSongs:songsPerPage];
     
