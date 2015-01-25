@@ -71,10 +71,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1Os-ZD-pPb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdh-AU-Dtq">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
@@ -104,23 +100,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSx-z6-ban">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <items/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            </toolbar>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="music_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="2NB-Xx-9TX">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="GWj-j0-PlK"/>
+                                    <constraint firstAttribute="width" constant="200" id="lH3-wi-mxp"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Play in Music Player" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kum-If-EVI">
+                                <rect key="frame" x="60" y="392" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="1Os-ZD-pPb" secondAttribute="bottom" constant="80" id="N5F-3b-qOV"/>
-                            <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" constant="36" id="suh-Rw-BRD"/>
-                            <constraint firstItem="1Os-ZD-pPb" firstAttribute="top" secondItem="hbc-jg-tbB" secondAttribute="top" constant="44" id="wDe-Ky-rLA"/>
+                            <constraint firstItem="2NB-Xx-9TX" firstAttribute="centerX" secondItem="Kum-If-EVI" secondAttribute="centerX" id="6l2-rc-SlF"/>
+                            <constraint firstAttribute="centerY" secondItem="2NB-Xx-9TX" secondAttribute="centerY" id="9gK-Rq-1JE"/>
+                            <constraint firstItem="Kum-If-EVI" firstAttribute="top" secondItem="2NB-Xx-9TX" secondAttribute="bottom" id="fUD-x1-T34"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ibTable" destination="1Os-ZD-pPb" id="ro0-jG-zmI"/>
-                        <outlet property="ibToolbar" destination="oSx-z6-ban" id="iM3-yU-5GE"/>
+                        <outlet property="ibImageView" destination="2NB-Xx-9TX" id="MdT-Jl-DbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTI-io-QWu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,7 +154,7 @@
                                                 <rect key="frame" x="16" y="5" width="71" height="33"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="&lt; Help">
+                                                <state key="normal" title="&lt; Home">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -244,6 +246,9 @@
             <point key="canvasLocation" x="1107" y="-16"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="music_icon.png" width="514" height="514"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

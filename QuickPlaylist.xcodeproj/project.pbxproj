@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70E15891A755E4C00C3763E /* ArtworkCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E15881A755E4C00C3763E /* ArtworkCellTableViewCell.m */; };
 		A7692F8C18E59C93000CFC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8B18E59C93000CFC91 /* Foundation.framework */; };
 		A7692F8E18E59C93000CFC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8D18E59C93000CFC91 /* CoreGraphics.framework */; };
 		A7692F9018E59C93000CFC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8F18E59C93000CFC91 /* UIKit.framework */; };
@@ -32,7 +33,7 @@
 		A77C2D0018E9330A008E2173 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A77C2CFF18E9330A008E2173 /* AVFoundation.framework */; };
 		A7C30A321A741481000520F9 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A301A741481000520F9 /* pause.png */; };
 		A7C30A331A741481000520F9 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C30A311A741481000520F9 /* play.png */; };
-		A7C30A371A741B6F000520F9 /* ArtworkCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */; };
+		A7CB0CC31A75593F001493CE /* music_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7CB0CC21A75593F001493CE /* music_icon.png */; };
 		A7CB23C61A74377A0023700E /* CustomPullToRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A70E15871A755E4C00C3763E /* ArtworkCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCellTableViewCell.h; sourceTree = "<group>"; };
+		A70E15881A755E4C00C3763E /* ArtworkCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCellTableViewCell.m; sourceTree = "<group>"; };
 		A7692F8818E59C93000CFC91 /* QuickPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7692F8B18E59C93000CFC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7692F8D18E59C93000CFC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,8 +85,7 @@
 		A77C2CFF18E9330A008E2173 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A7C30A301A741481000520F9 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A7C30A311A741481000520F9 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
-		A7C30A351A741B6F000520F9 /* ArtworkCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCellTableViewCell.h; sourceTree = "<group>"; };
-		A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCellTableViewCell.m; sourceTree = "<group>"; };
+		A7CB0CC21A75593F001493CE /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
 		A7CB23C41A74377A0023700E /* CustomPullToRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPullToRefreshControl.h; sourceTree = "<group>"; };
 		A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPullToRefreshControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,8 @@
 		A7692F9118E59C93000CFC91 /* QuickPlaylist */ = {
 			isa = PBXGroup;
 			children = (
+				A70E15871A755E4C00C3763E /* ArtworkCellTableViewCell.h */,
+				A70E15881A755E4C00C3763E /* ArtworkCellTableViewCell.m */,
 				A7CB23C41A74377A0023700E /* CustomPullToRefreshControl.h */,
 				A7CB23C51A74377A0023700E /* CustomPullToRefreshControl.m */,
 				A7C30A341A741488000520F9 /* images */,
@@ -171,8 +175,6 @@
 				A778B90518E5BAA3001FF331 /* FinalViewController.h */,
 				A778B90618E5BAA3001FF331 /* FinalViewController.m */,
 				A7692FD918E5B61D000CFC91 /* MPMediaTester.m */,
-				A7C30A351A741B6F000520F9 /* ArtworkCellTableViewCell.h */,
-				A7C30A361A741B6F000520F9 /* ArtworkCellTableViewCell.m */,
 			);
 			path = QuickPlaylist;
 			sourceTree = "<group>";
@@ -209,6 +211,7 @@
 		A7C30A341A741488000520F9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A7CB0CC21A75593F001493CE /* music_icon.png */,
 				A7C30A301A741481000520F9 /* pause.png */,
 				A7C30A311A741481000520F9 /* play.png */,
 			);
@@ -298,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CB0CC31A75593F001493CE /* music_icon.png in Resources */,
 				A7692FA218E59C94000CFC91 /* Main_iPad.storyboard in Resources */,
 				A7692FA718E59C94000CFC91 /* Images.xcassets in Resources */,
 				A7C30A321A741481000520F9 /* pause.png in Resources */,
@@ -324,7 +328,6 @@
 			files = (
 				A778B90718E5BAA3001FF331 /* FinalViewController.m in Sources */,
 				A7692FCB18E5A0D6000CFC91 /* HelpViewController.m in Sources */,
-				A7C30A371A741B6F000520F9 /* ArtworkCellTableViewCell.m in Sources */,
 				A7692FD218E5A4B3000CFC91 /* PlaylistTableViewController.m in Sources */,
 				A7692F9C18E59C93000CFC91 /* AppDelegate.m in Sources */,
 				A7692F9818E59C93000CFC91 /* main.m in Sources */,
@@ -332,6 +335,7 @@
 				A7CB23C61A74377A0023700E /* CustomPullToRefreshControl.m in Sources */,
 				A7692FD718E5AAA2000CFC91 /* MediaManager.m in Sources */,
 				A7692FDA18E5B61D000CFC91 /* MPMediaTester.m in Sources */,
+				A70E15891A755E4C00C3763E /* ArtworkCellTableViewCell.m in Sources */,
 				A7692FC818E59EFC000CFC91 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

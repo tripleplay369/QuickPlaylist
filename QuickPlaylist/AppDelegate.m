@@ -46,38 +46,4 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-- (void)remoteControlReceivedWithEvent:(UIEvent *)receivedEvent
-{
-    if (receivedEvent.type == UIEventTypeRemoteControl) {
-        PageViewController * pvc = (PageViewController *)[AppDelegate topMostController];
-        FinalViewController * fvc = (FinalViewController *)[pvc currentViewController];
-        
-        switch (receivedEvent.subtype) {
-            case UIEventSubtypeRemoteControlPause:
-            case UIEventSubtypeRemoteControlPlay:
-                [fvc play:nil];
-                break;
-            case UIEventSubtypeRemoteControlPreviousTrack:
-                [fvc rewind:nil];
-                break;
-            case UIEventSubtypeRemoteControlNextTrack:
-                [fvc fastForward:nil];
-                break;
-            default:
-                break;
-        }
-    }
-}
-
-+ (UIViewController*) topMostController
-{
-    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    while (topController.presentedViewController) {
-        topController = topController.presentedViewController;
-    }
-    
-    return topController;
-}
-
 @end

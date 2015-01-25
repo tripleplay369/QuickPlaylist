@@ -87,11 +87,6 @@
         [[MediaManager shared] clearPlaylist];
     }
     
-    if([[previousViewControllers objectAtIndex:0] isKindOfClass:[FinalViewController class]]){
-        FinalViewController * fvc = [previousViewControllers objectAtIndex:0];
-        [fvc stop];
-    }
-    
     if([pendingViewController isKindOfClass:[HelpViewController class]]){
         pageIndex = 0;
     }
@@ -114,11 +109,6 @@
 -(NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return pageIndex;
-}
-
--(UIViewController *)currentViewController
-{
-    return [self.viewControllers objectAtIndex:0];
 }
 
 @end
