@@ -19,5 +19,6 @@
 -(NSArray *)getPlaylist;
 -(void)clearPlaylist;
 -(void)moveIndex:(int)startIndex toIndex:(int)endIndex;
+-(void)refreshSongs;
 
 @end

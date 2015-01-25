@@ -9,6 +9,7 @@
 #import "HelpViewController.h"
 
 #import "HelpCell.h"
+#import "MediaManager.h"
 
 @interface HelpViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -37,8 +38,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0)return 1;
-    return 5;
+    if(section == 0)return 5;
+    return 1;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -58,9 +59,11 @@
     int section = [indexPath indexAtPosition:0];
     int row = [indexPath indexAtPosition:1];
     
-    if(section == 0){
+    if(section == 1){
         cell.textLabel.text = @"Show iCloud Music";
         toggle = [[UISwitch alloc] initWithFrame:CGRectZero];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        toggle.on = [[defaults objectForKey:@"iCloud"] boolValue] == YES;
         [toggle addTarget:self action:@selector(switched) forControlEvents:UIControlEventValueChanged];
         cell.accessoryView = toggle;
         UIImage * image = [UIImage imageNamed:@"cloudstorage.png"];
@@ -101,7 +104,10 @@
 
 -(void)switched
 {
-    NSLog(@"switched");
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@(toggle.on) forKey:@"iCloud"];
+    [defaults synchronize];
+    [[MediaManager shared] refreshSongs];
 }
 
 -(void)viewWillLayoutSubviews{

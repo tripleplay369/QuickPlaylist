@@ -119,7 +119,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Tap to add to playlist, pull down to refresh.";
+    return nil;
 }
 
 @end

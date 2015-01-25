@@ -48,13 +48,7 @@ static MediaManager * shared_p = nil;
 -(NSMutableArray *)getRandomSongs:(int)n
 {
     if(!allSongs){
-        MPMediaQuery * everything = [[MPMediaQuery alloc] init];
-        MPMediaPropertyPredicate * predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
-        [everything addFilterPredicate:predicate];
-        predicate = [MPMediaPropertyPredicate predicateWithValue:@(NO) forProperty:MPMediaItemPropertyIsCloudItem];
-        [everything addFilterPredicate:predicate];
-
-        allSongs = [everything items];
+        [self refreshSongs];
     }
     
     NSMutableSet * songs = [NSMutableSet set];
@@ -89,6 +83,22 @@ static MediaManager * shared_p = nil;
     MPMediaItem * song = [playlist objectAtIndex:startIndex];
     [playlist removeObjectAtIndex:startIndex];
     [playlist insertObject:song atIndex:endIndex];
+}
+
+-(void)refreshSongs
+{
+    MPMediaQuery * everything = [[MPMediaQuery alloc] init];
+    MPMediaPropertyPredicate * predicate = [MPMediaPropertyPredicate predicateWithValue:[NSNumber numberWithInteger:MPMediaTypeMusic] forProperty:MPMediaItemPropertyMediaType];
+    [everything addFilterPredicate:predicate];
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if([[defaults objectForKey:@"iCloud"] boolValue] == NO){
+        predicate = [MPMediaPropertyPredicate predicateWithValue:@(NO) forProperty:MPMediaItemPropertyIsCloudItem];
+        [everything addFilterPredicate:predicate];
+    }
+
+    allSongs = [everything items];
 }
 
 @end
