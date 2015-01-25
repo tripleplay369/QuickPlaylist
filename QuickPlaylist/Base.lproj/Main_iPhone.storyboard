@@ -113,8 +113,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" id="Mgk-GY-FII"/>
-                            <constraint firstAttribute="bottom" secondItem="1Os-ZD-pPb" secondAttribute="bottom" constant="44" id="N5F-3b-qOV"/>
+                            <constraint firstAttribute="bottom" secondItem="1Os-ZD-pPb" secondAttribute="bottom" constant="80" id="N5F-3b-qOV"/>
+                            <constraint firstAttribute="bottom" secondItem="oSx-z6-ban" secondAttribute="bottom" constant="36" id="suh-Rw-BRD"/>
                             <constraint firstItem="1Os-ZD-pPb" firstAttribute="top" secondItem="hbc-jg-tbB" secondAttribute="top" constant="44" id="wDe-Ky-rLA"/>
                         </constraints>
                     </view>
@@ -231,7 +231,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="3Y7-Ja-Lwf" secondAttribute="bottom" id="KlK-Ww-pdR"/>
+                            <constraint firstAttribute="bottom" secondItem="3Y7-Ja-Lwf" secondAttribute="bottom" constant="36" id="KlK-Ww-pdR"/>
                             <constraint firstItem="3Y7-Ja-Lwf" firstAttribute="top" secondItem="pks-r8-u66" secondAttribute="top" constant="44" id="bJg-8L-Y5g"/>
                         </constraints>
                     </view>
