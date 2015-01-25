@@ -75,7 +75,7 @@
 
 -(void)reset
 {
-    [self setViewControllers:@[[self.storyboard instantiateViewControllerWithIdentifier:@"table"]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    [self setViewControllers:@[pendingViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
 }
 
 -(void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
