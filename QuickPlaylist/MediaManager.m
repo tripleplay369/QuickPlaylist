@@ -58,10 +58,10 @@ static MediaManager * shared_p = nil;
     }
     
     NSMutableSet * songs = [NSMutableSet set];
-    while(songs.count < n && songs.count < allSongs.count){
+    while(songs.count < n && songs.count < allSongs.count - playlist.count){
         int trackNumber = arc4random() % [allSongs count];
         MPMediaItem * song = [allSongs objectAtIndex:trackNumber];
-        if(![songs containsObject:song]){
+        if(![songs containsObject:song] && ![playlist containsObject:song]){
             [songs addObject:song];
         }
     }
