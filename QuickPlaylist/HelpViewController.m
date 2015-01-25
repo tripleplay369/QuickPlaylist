@@ -8,7 +8,101 @@
 
 #import "HelpViewController.h"
 
+#import "HelpCell.h"
+
+@interface HelpViewController()<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *ibTable;
+@property UISwitch * toggle;
+
+@end
+
 @implementation HelpViewController
+
+@synthesize ibTable;
+@synthesize toggle;
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    ibTable.delegate = self;
+    ibTable.dataSource = self;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section == 0)return 1;
+    return 5;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return nil;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    HelpCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if(cell == nil){
+        cell = [[HelpCell alloc] initWithStyle:UITableViewCellStyleSubtitle  reuseIdentifier:CellIdentifier];
+    }
+    
+    int section = [indexPath indexAtPosition:0];
+    int row = [indexPath indexAtPosition:1];
+    
+    if(section == 0){
+        cell.textLabel.text = @"Show iCloud Music";
+        toggle = [[UISwitch alloc] initWithFrame:CGRectZero];
+        [toggle addTarget:self action:@selector(switched) forControlEvents:UIControlEventValueChanged];
+        cell.accessoryView = toggle;
+        UIImage * image = [UIImage imageNamed:@"cloudstorage.png"];
+        cell.imageView.image = image;
+    }
+    else{
+        if(row == 0){
+            cell.textLabel.text = @"Move between steps";
+            UIImage * image = [UIImage imageNamed:@"swipe.png"];
+            cell.imageView.image = image;
+        }
+        else if(row == 1){
+            cell.textLabel.text = @"Add song to the playlist";
+            UIImage * image = [UIImage imageNamed:@"tap.png"];
+            cell.imageView.image = image;
+        }
+        else if(row == 2){
+            cell.textLabel.text = @"Refresh random songs";
+            UIImage * image = [UIImage imageNamed:@"down.png"];
+            cell.imageView.image = image;
+        }
+        else if(row == 3){
+            cell.textLabel.text = @"Reorder song in playlist";
+            UIImage * image = [UIImage imageNamed:@"drag.png"];
+            cell.imageView.image = image;
+            cell.smallIcon = YES;
+        }
+        else if(row == 4){
+            cell.textLabel.text = @"Delete song from playlist";
+            UIImage * image = [UIImage imageNamed:@"delete.png"];
+            cell.imageView.image = image;
+            cell.smallIcon = YES;
+        }
+    }
+    
+    return cell;
+}
+
+-(void)switched
+{
+    NSLog(@"switched");
+}
 
 -(void)viewWillLayoutSubviews{
     

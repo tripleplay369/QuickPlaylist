@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		A70E15891A755E4C00C3763E /* ArtworkCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E15881A755E4C00C3763E /* ArtworkCellTableViewCell.m */; };
+		A70E158F1A75669600C3763E /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E158A1A75669600C3763E /* delete.png */; };
+		A70E15901A75669600C3763E /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E158B1A75669600C3763E /* down.png */; };
+		A70E15911A75669600C3763E /* drag.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E158C1A75669600C3763E /* drag.png */; };
+		A70E15921A75669600C3763E /* swipe.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E158D1A75669600C3763E /* swipe.png */; };
+		A70E15931A75669600C3763E /* tap.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E158E1A75669600C3763E /* tap.png */; };
+		A70E15991A756BC300C3763E /* HelpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A70E15981A756BC300C3763E /* HelpCell.m */; };
+		A70E159B1A756E6600C3763E /* cloudstorage.png in Resources */ = {isa = PBXBuildFile; fileRef = A70E159A1A756E6600C3763E /* cloudstorage.png */; };
 		A7692F8C18E59C93000CFC91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8B18E59C93000CFC91 /* Foundation.framework */; };
 		A7692F8E18E59C93000CFC91 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8D18E59C93000CFC91 /* CoreGraphics.framework */; };
 		A7692F9018E59C93000CFC91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7692F8F18E59C93000CFC91 /* UIKit.framework */; };
@@ -50,6 +57,14 @@
 /* Begin PBXFileReference section */
 		A70E15871A755E4C00C3763E /* ArtworkCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtworkCellTableViewCell.h; sourceTree = "<group>"; };
 		A70E15881A755E4C00C3763E /* ArtworkCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtworkCellTableViewCell.m; sourceTree = "<group>"; };
+		A70E158A1A75669600C3763E /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		A70E158B1A75669600C3763E /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		A70E158C1A75669600C3763E /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag.png; sourceTree = "<group>"; };
+		A70E158D1A75669600C3763E /* swipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = swipe.png; sourceTree = "<group>"; };
+		A70E158E1A75669600C3763E /* tap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tap.png; sourceTree = "<group>"; };
+		A70E15971A756BC300C3763E /* HelpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpCell.h; sourceTree = "<group>"; };
+		A70E15981A756BC300C3763E /* HelpCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpCell.m; sourceTree = "<group>"; };
+		A70E159A1A756E6600C3763E /* cloudstorage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudstorage.png; sourceTree = "<group>"; };
 		A7692F8818E59C93000CFC91 /* QuickPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7692F8B18E59C93000CFC91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A7692F8D18E59C93000CFC91 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -175,6 +190,8 @@
 				A778B90518E5BAA3001FF331 /* FinalViewController.h */,
 				A778B90618E5BAA3001FF331 /* FinalViewController.m */,
 				A7692FD918E5B61D000CFC91 /* MPMediaTester.m */,
+				A70E15971A756BC300C3763E /* HelpCell.h */,
+				A70E15981A756BC300C3763E /* HelpCell.m */,
 			);
 			path = QuickPlaylist;
 			sourceTree = "<group>";
@@ -211,6 +228,12 @@
 		A7C30A341A741488000520F9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A70E159A1A756E6600C3763E /* cloudstorage.png */,
+				A70E158A1A75669600C3763E /* delete.png */,
+				A70E158B1A75669600C3763E /* down.png */,
+				A70E158C1A75669600C3763E /* drag.png */,
+				A70E158D1A75669600C3763E /* swipe.png */,
+				A70E158E1A75669600C3763E /* tap.png */,
 				A7CB0CC21A75593F001493CE /* music_icon.png */,
 				A7C30A301A741481000520F9 /* pause.png */,
 				A7C30A311A741481000520F9 /* play.png */,
@@ -301,7 +324,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70E158F1A75669600C3763E /* delete.png in Resources */,
+				A70E15921A75669600C3763E /* swipe.png in Resources */,
+				A70E15911A75669600C3763E /* drag.png in Resources */,
+				A70E15931A75669600C3763E /* tap.png in Resources */,
 				A7CB0CC31A75593F001493CE /* music_icon.png in Resources */,
+				A70E159B1A756E6600C3763E /* cloudstorage.png in Resources */,
+				A70E15901A75669600C3763E /* down.png in Resources */,
 				A7692FA218E59C94000CFC91 /* Main_iPad.storyboard in Resources */,
 				A7692FA718E59C94000CFC91 /* Images.xcassets in Resources */,
 				A7C30A321A741481000520F9 /* pause.png in Resources */,
@@ -336,6 +365,7 @@
 				A7692FD718E5AAA2000CFC91 /* MediaManager.m in Sources */,
 				A7692FDA18E5B61D000CFC91 /* MPMediaTester.m in Sources */,
 				A70E15891A755E4C00C3763E /* ArtworkCellTableViewCell.m in Sources */,
+				A70E15991A756BC300C3763E /* HelpCell.m in Sources */,
 				A7692FC818E59EFC000CFC91 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
